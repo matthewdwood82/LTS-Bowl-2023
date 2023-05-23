@@ -1,0 +1,28 @@
+---
+title: "LTS Bowl 2023"
+author: "Matt Wood"
+format: html
+editor: visual
+---
+
+```{r dependencies}
+# data ingest
+library(ffscrapr)
+library(googlesheets4)
+
+# data munging
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(lubridate)
+library(purrr)
+
+# data display and interaction
+library(DT)
+# library(shinyWidgets)
+```
+
+
+## Intro
+
+This is a page for LTS Bowl 2023
