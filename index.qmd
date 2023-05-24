@@ -6,6 +6,8 @@ editor: visual
 ---
 
 ```{r dependencies}
+#| echo: false
+
 # data ingest
 library(ffscrapr)
 library(googlesheets4)
