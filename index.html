@@ -68,50 +68,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ffscrapr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'googlesheets4' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
 
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'lubridate' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'lubridate'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    date, intersect, setdiff, union</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'DT' was built under R version 4.2.3</code></pre>
-</div>
 </div>
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
@@ -120,6 +77,42 @@ Attaching package: 'lubridate'</code></pre>
 <section id="bylaws" class="level2">
 <h2 class="anchored" data-anchor-id="bylaws">Bylaws</h2>
 <p>Bylaws for the league are available here, email Greg Bryant for access: <a href="https://docs.google.com/document/d/1k76NQOfXkMt7cuoOMdObSZ33DGI7Ti55odjzDIKYY28/edit?usp=sharing">2022 bylaws</a></p>
+</section>
+<section id="scoring" class="level2">
+<h2 class="anchored" data-anchor-id="scoring">Scoring</h2>
+<section id="weekly-report" class="level3">
+<h3 class="anchored" data-anchor-id="weekly-report">Weekly Report</h3>
+<p>A table with below categories following something like <a href="https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=0">format here</a>, easily filterable by week using a dropdown in DT: - Biggest Blowout - Narrowest Win - Fewest Points in Win - Most Points in Loss - Highest Score - Lowest Score</p>
+<p>Columns should include the following: - <code>Week</code> - <code>Category</code> - <code>Winner</code> (or <code>Awardee</code>?) - <code>Loser</code> (or <code>Opponent</code>? if applicable) - <code>Score</code> (for matchup or the specific team, depending on whether it is a team or matchup stat) + Consider breaking this into two columns, <code>Awardee Score</code> and <code>Opponent Score</code> - <code>Difference</code> (for matchup awards only)</p>
+</section>
+<section id="total-points" class="level3">
+<h3 class="anchored" data-anchor-id="total-points">Total Points</h3>
+<p>A table with below columns following something like <a href="https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=1651024097">format here</a>, easily filterable by week using a dropdown in DT: - <code>Team</code> - <code>Total Points For</code> - <code>Total Points Against</code> - <code>League Name</code></p>
+</section>
+<section id="all-results" class="level3">
+<h3 class="anchored" data-anchor-id="all-results">All Results</h3>
+<p>A table with results of each matchup for each week. Use either the vanilla format from <code>{ffscrapr}</code> or the one in the <a href="https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=654454361">Google Sheet here</a>.</p>
+</section>
+<section id="eliminated-teams" class="level3">
+<h3 class="anchored" data-anchor-id="eliminated-teams">Eliminated Teams</h3>
+<p>Develop this list using logic either from <code>All Results</code> or the <code>{ffscrapr}</code> source from which it is derived.</p>
+</section>
+</section>
+<section id="transactions" class="level2">
+<h2 class="anchored" data-anchor-id="transactions">Transactions</h2>
+<p>Put these in a filterable table either at the bottom of this page or in a separate one.</p>
+<section id="free-agent-transactions" class="level3">
+<h3 class="anchored" data-anchor-id="free-agent-transactions">Free Agent Transactions</h3>
+<p>Same as <a href="https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=1061403677">here</a>.</p>
+</section>
+<section id="waiver-transactions" class="level3">
+<h3 class="anchored" data-anchor-id="waiver-transactions">Waiver Transactions</h3>
+<p>Same as <a href="https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=870210681">here</a>.</p>
+</section>
+<section id="trades" class="level3">
+<h3 class="anchored" data-anchor-id="trades">Trades</h3>
+<p>Same as <a href="https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=674275935">here</a>.</p>
+</section>
 </section>
 
 </main>
