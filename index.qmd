@@ -6,7 +6,7 @@ editor: visual
 ---
 
 ```{r dependencies}
-#| echo: false
+#| echo: FALSE
 
 # data ingest
 library(ffscrapr)
@@ -27,4 +27,9 @@ library(DT)
 
 ## Intro
 
-This is a page for LTS Bowl 2023
+This is a page for LTS Bowl 2023. Notional page will be developed using 2022 data, until such time that bylaws are made available.
+
+
+## Bylaws
+
+Bylaws for the league are available here, email Greg Bryant for access: [2022 bylaws](https://docs.google.com/document/d/1k76NQOfXkMt7cuoOMdObSZ33DGI7Ti55odjzDIKYY28/edit?usp=sharing)
