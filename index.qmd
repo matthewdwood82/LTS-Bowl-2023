@@ -7,6 +7,7 @@ editor: visual
 
 ```{r dependencies}
 #| echo: FALSE
+#| warning: FALSE
 
 # data ingest
 library(ffscrapr)
@@ -33,3 +34,64 @@ This is a page for LTS Bowl 2023. Notional page will be developed using 2022 dat
 ## Bylaws
 
 Bylaws for the league are available here, email Greg Bryant for access: [2022 bylaws](https://docs.google.com/document/d/1k76NQOfXkMt7cuoOMdObSZ33DGI7Ti55odjzDIKYY28/edit?usp=sharing)
+
+
+## Scoring
+
+### Weekly Report
+
+A table with below categories following something like [format here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=0), easily filterable by week using a dropdown in DT:
+  - Biggest Blowout
+  - Narrowest Win
+  - Fewest Points in Win
+  - Most Points in Loss
+  - Highest Score
+  - Lowest Score
+
+Columns should include the following:
+  - `Week`
+  - `Category`
+  - `Winner` (or `Awardee`?)
+  - `Loser` (or `Opponent`? if applicable)
+  - `Score` (for matchup or the specific team, depending on whether it is a team or matchup stat)
+    + Consider breaking this into two columns, `Awardee Score` and `Opponent Score`
+  - `Difference` (for matchup awards only)
+  
+
+### Total Points
+
+A table with below columns following something like [format here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=1651024097), easily filterable by week using a dropdown in DT:
+  - `Team`
+  - `Total Points For`
+  - `Total Points Against`
+  - `League Name`
+  
+
+### All Results
+
+A table with results of each matchup for each week. Use either the vanilla format from `{ffscrapr}` or the one in the [Google Sheet here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=654454361).
+
+
+### Eliminated Teams
+
+Develop this list using logic either from `All Results` or the `{ffscrapr}` source from which it is derived.
+
+
+## Transactions
+
+Put these in a filterable table either at the bottom of this page or in a separate one.
+
+
+### Free Agent Transactions
+
+Same as [here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=1061403677).
+
+
+### Waiver Transactions
+
+Same as [here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=870210681).
+
+
+### Trades
+
+Same as [here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=674275935).
