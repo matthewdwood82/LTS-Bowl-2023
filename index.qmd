@@ -3,11 +3,12 @@ title: "LTS Bowl 2023"
 author: "Matt Wood"
 format: html
 editor: visual
+execute:
+  echo: false
+  warning: false
 ---
 
 ```{r dependencies}
-#| echo: FALSE
-#| warning: FALSE
 
 # data ingest
 library(ffscrapr)
@@ -23,17 +24,32 @@ library(purrr)
 # data display and interaction
 library(DT)
 # library(shinyWidgets)
+
+lts_conn <- c(
+    "869072831982559232",
+    "859524057538887680",
+    "869073624508891136",
+    "869073848140800000",
+    "866166165288939520"
+  ) %>%
+  purrr::set_names("L1", "L2", "L3", "L4", "L5") %>%
+  purrr::map(.x = .,
+             ~ ff_connect(
+               league_id = .x,
+               platform = "sleeper",
+               season = 2022
+             ))
 ```
 
 
 ## Intro
 
-This is a page for LTS Bowl 2023. Notional page will be developed using 2022 data, until such time that bylaws are made available.
+Welcome to the scoring and transaction site for the Living the Stream Bowl 2023!
 
 
 ## Bylaws
 
-Bylaws for the league are available here, email Greg Bryant for access: [2022 bylaws](https://docs.google.com/document/d/1k76NQOfXkMt7cuoOMdObSZ33DGI7Ti55odjzDIKYY28/edit?usp=sharing)
+Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto:lts.leaguecommish@gmail.com ) for access: [2023 bylaws](https://docs.google.com/document/d/1TVPnjUtb53mUAFtjFjvf8bk0E9AB4-FsHYxE8VFWiss/edit)
 
 
 ## Scoring
@@ -51,11 +67,88 @@ A table with below categories following something like [format here](https://doc
 Columns should include the following:
   - `Week`
   - `Category`
+  - `League`
   - `Winner` (or `Awardee`?)
   - `Loser` (or `Opponent`? if applicable)
   - `Score` (for matchup or the specific team, depending on whether it is a team or matchup stat)
     + Consider breaking this into two columns, `Awardee Score` and `Opponent Score`
   - `Difference` (for matchup awards only)
+  
+```{r weekly_report}
+
+# get all franchise names and ids for all leagues
+df_franchises <- purrr::map(lts_conn, ~ ff_franchises(.x)) %>% 
+  dplyr::bind_rows(.id = "league")
+
+# get all scores for each week
+df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
+  dplyr::bind_rows(.id = "league") %>% 
+  dplyr::mutate(diff_score = abs(franchise_score - opponent_score)) %>% 
+  dplyr::left_join(df_franchises[,1:4], by = c("league", "franchise_id")) %>% 
+  dplyr::left_join(df_franchises[,1:4], by = c("league" = "league", "opponent_id" = "franchise_id"), suffix = c("", "_opponent"))
+
+# define weekly categories so we can sort by ordered list in full df_weekly later
+v_category <- ordered(c("Biggest Blowout", "Narrowest Win", "Fewest Points in Win", "Most Points in Loss", "Highest Score", "Lowest Score"))
+
+df_weekly_blowout <- df_scores %>%
+  dplyr::group_by(week) %>%
+  dplyr::filter(result == "W", diff_score == max(diff_score)) %>%
+  dplyr::ungroup() %>% 
+  dplyr::mutate(Category = v_category[1]) %>% 
+  dplyr::select(Week = week, Category, League = league, Awardee = franchise_name, Opponent = franchise_name_opponent, `Awardee Score` = franchise_score, `Opponent Score` = opponent_score, Difference = diff_score)
+  
+df_weekly_narrow_win <- df_scores %>%
+  dplyr::group_by(week) %>%
+  dplyr::filter(result == "W", diff_score == min(diff_score)) %>%
+  dplyr::ungroup() %>% 
+  dplyr::mutate(Category = v_category[2]) %>% 
+  dplyr::select(Week = week, Category, League = league, Awardee = franchise_name, Opponent = franchise_name_opponent, `Awardee Score` = franchise_score, `Opponent Score` = opponent_score, Difference = diff_score)
+
+df_weekly_fewest_points_win <- df_scores %>%
+  dplyr::group_by(week) %>%
+  dplyr::filter(result == "W") %>%
+  dplyr::filter(franchise_score == min(franchise_score)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(Category = v_category[3]) %>% 
+  dplyr::select(Week = week, Category, League = league, Awardee = franchise_name, Opponent = franchise_name_opponent, `Awardee Score` = franchise_score, `Opponent Score` = opponent_score, Difference = diff_score)
+
+df_weekly_most_points_loss <- df_scores %>%
+  dplyr::group_by(week) %>%
+  dplyr::filter(result == "L", opponent_score == max(opponent_score)) %>%
+  dplyr::ungroup() %>% 
+  dplyr::mutate(Category = v_category[4]) %>% 
+  dplyr::select(Week = week, Category, League = league, Awardee = franchise_name, Opponent = franchise_name_opponent, `Awardee Score` = franchise_score, `Opponent Score` = opponent_score, Difference = diff_score)
+
+df_weekly_highest_score <- df_scores %>%
+  dplyr::group_by(week) %>%
+  dplyr::filter(franchise_score == max(franchise_score)) %>%
+  dplyr::ungroup() %>% 
+  dplyr::mutate(Category = v_category[5]) %>% 
+  dplyr::select(Week = week, Category, League = league, Awardee = franchise_name, Opponent = franchise_name_opponent, `Awardee Score` = franchise_score, `Opponent Score` = opponent_score, Difference = diff_score)
+
+df_weekly_lowest_score <- df_scores %>%
+  dplyr::group_by(week) %>%
+  dplyr::filter(franchise_score == min(franchise_score)) %>%
+  dplyr::ungroup() %>% 
+  dplyr::mutate(Category = v_category[6]) %>% 
+  dplyr::select(Week = week, Category, League = league, Awardee = franchise_name, Opponent = franchise_name_opponent, `Awardee Score` = franchise_score, `Opponent Score` = opponent_score, Difference = diff_score)
+  
+
+# collect weekly categories
+v_weekly_dfs <- ls(pattern = "df_weekly_")
+
+df_weekly <-mget(v_weekly_dfs) %>%
+  purrr::set_names(nm = v_weekly_dfs) %>%
+  dplyr::bind_rows() %>%
+  dplyr::arrange(dplyr::desc(Week), factor(Category, levels = v_category))
+
+DT::datatable(df_weekly, rownames = FALSE, filter = "top", options = list(pageLength = 6, buttons = "csv"))
+
+```
+
+  
+
+
   
 
 ### Total Points
@@ -67,6 +160,8 @@ A table with below columns following something like [format here](https://docs.g
   - `League Name`
   
 
+  
+
 ### All Results
 
 A table with results of each matchup for each week. Use either the vanilla format from `{ffscrapr}` or the one in the [Google Sheet here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=654454361).
@@ -75,6 +170,12 @@ A table with results of each matchup for each week. Use either the vanilla forma
 ### Eliminated Teams
 
 Develop this list using logic either from `All Results` or the `{ffscrapr}` source from which it is derived.
+
+Get a df that has `player`, `team_name`, `week`, `points_for` 
+- group_by week
+- filter off or slice off the three lowest teams using some combination of `rank`, `min`, etc.
+
+If we also want a list of "Competing Teams", include the complementary filter in a separate table.
 
 
 ## Transactions
