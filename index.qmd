@@ -125,7 +125,7 @@ df_weekly <-mget(v_weekly_dfs) %>%
   dplyr::bind_rows() %>%
   dplyr::arrange(dplyr::desc(Week), factor(Category, levels = v_category))
 
-DT::datatable(df_weekly, rownames = FALSE, filter = "top", extensions = "Buttons", options = list(pageLength = 6, dom = "Bt", buttons = c("csv", "excel", "pdf")))
+DT::datatable(df_weekly, rownames = FALSE, filter = "top", extensions = "Buttons", options = list(pageLength = 6, dom = "Bfrtip", buttons = c("csv", "excel", "pdf")))
 
 ```
 
