@@ -125,7 +125,19 @@ df_weekly <-mget(v_weekly_dfs) %>%
   dplyr::bind_rows() %>%
   dplyr::arrange(dplyr::desc(Week), factor(Category, levels = v_category))
 
-DT::datatable(df_weekly, rownames = FALSE, filter = "top", extensions = "Buttons", options = list(pageLength = 6, dom = "Bfrtip", buttons = c("csv", "excel", "pdf")))
+
+DT::datatable(
+  df_weekly,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 6,
+    lengthMenu = c(6, 24, 102),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
 
 ```
 
@@ -136,12 +148,36 @@ DT::datatable(df_weekly, rownames = FALSE, filter = "top", extensions = "Buttons
 
 ### Total Points
 
-A table with below columns following something like [format here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=1651024097), easily filterable by week using a dropdown in DT:
-  - `Team`
-  - `Total Points For`
-  - `Total Points Against`
-  - `League Name`
   
+```{r total_points}
+
+
+df_total_points <- df_scores %>%
+  dplyr::group_by(league, franchise_name) %>%
+  dplyr::summarize(
+    total_pts_for = sum(franchise_score, na.rm = TRUE),
+    total_pts_against = sum(opponent_score, na.rm = TRUE)
+  ) %>%
+  dplyr::select(
+    Team = franchise_name,
+    `Total Points For` = total_pts_for,
+    `Total Points Against` = total_pts_against,
+    League = league)
+
+DT::datatable(
+  df_total_points,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 50,
+    lengthMenu = c(10, 25, 50),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
+
+```
 
   
 
