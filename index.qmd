@@ -56,23 +56,6 @@ Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto
 
 ### Weekly Report
 
-A table with below categories following something like [format here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=0), easily filterable by week using a dropdown in DT:
-  - Biggest Blowout
-  - Narrowest Win
-  - Fewest Points in Win
-  - Most Points in Loss
-  - Highest Score
-  - Lowest Score
-
-Columns should include the following:
-  - `Week`
-  - `Category`
-  - `League`
-  - `Winner` (or `Awardee`?)
-  - `Loser` (or `Opponent`? if applicable)
-  - `Score` (for matchup or the specific team, depending on whether it is a team or matchup stat)
-    + Consider breaking this into two columns, `Awardee Score` and `Opponent Score`
-  - `Difference` (for matchup awards only)
   
 ```{r weekly_report}
 
@@ -142,7 +125,7 @@ df_weekly <-mget(v_weekly_dfs) %>%
   dplyr::bind_rows() %>%
   dplyr::arrange(dplyr::desc(Week), factor(Category, levels = v_category))
 
-DT::datatable(df_weekly, rownames = FALSE, filter = "top", options = list(pageLength = 6, buttons = "csv"))
+DT::datatable(df_weekly, rownames = FALSE, filter = "top", extensions = "Buttons", options = list(pageLength = 6, dom = "Bt", buttons = c("csv", "excel", "pdf")))
 
 ```
 
