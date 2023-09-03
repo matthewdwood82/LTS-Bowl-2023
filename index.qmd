@@ -56,7 +56,6 @@ Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto
 
 ### Weekly Report
 
-  
 ```{r weekly_report}
 
 # get all franchise names and ids for all leagues
@@ -142,13 +141,8 @@ DT::datatable(
 ```
 
   
-
-
-  
-
 ### Total Points
 
-  
 ```{r total_points}
 
 
@@ -180,38 +174,208 @@ DT::datatable(
 ```
 
   
-
 ### All Results
 
-A table with results of each matchup for each week. Use either the vanilla format from `{ffscrapr}` or the one in the [Google Sheet here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=654454361).
+A table with results of each matchup for each week. 
+
+```{r all_results}
+df_scores %>% 
+  dplyr::arrange(desc(week), league) %>%
+  dplyr::select(
+    League = league,
+    Week = week,
+    Team = franchise_name,
+    Score = franchise_score,
+    Opponent = franchise_name_opponent,
+    `Opp. Score` = opponent_score,
+    Result = result,
+    Difference = diff_score
+  ) %>% 
+  DT::datatable(
+    .,
+    rownames = FALSE,
+    filter = "top",
+    extensions = "Buttons",
+    options = list(
+      pageLength = 25,
+      lengthMenu = c(25, 50, 100),
+      dom = "Bfrtpl",
+      buttons = c("csv", "excel", "pdf")
+    )
+  )
+```
 
 
-### Eliminated Teams
+### Survival Pool
 
-Develop this list using logic either from `All Results` or the `{ffscrapr}` source from which it is derived.
+Three teams are removed from the survival pool each week until there is only one team remaining after Week 16 MNF. 
 
-Get a df that has `player`, `team_name`, `week`, `points_for` 
-- group_by week
-- filter off or slice off the three lowest teams using some combination of `rank`, `min`, etc.
+If two teams are tied at the end of a week, the team with the fewest cumulative points to date will be eliminated.
 
-If we also want a list of "Competing Teams", include the complementary filter in a separate table.
+These results should be considered interim until after Sleeper's data provider has processed most of its stat corrections on Tuesdays. See [Sleeper documentation](https://support.sleeper.com/en/articles/2441282-stat-corrections) for more information.
+
+
+#### Teams Still in Pool
+
+```{r survival_teams}
+df_week_list <- df_scores %>% 
+  dplyr::filter(week <= 16) %>% 
+  dplyr::arrange(week) %>% 
+  dplyr::group_by(league, franchise_id) %>% 
+  dplyr::mutate(cum_franchise_score = cumsum(franchise_score)) %>% 
+  dplyr::ungroup() %>% 
+  # dplyr::group_by(week) %>% 
+  # dplyr::arrange(franchise_score) %>% 
+  # # tidyr::nest(.key = "week_df") %>%
+  # dplyr::ungroup() %>%
+  split(.$week) 
+
+# get max week in data, i.e., the current week
+v_max_week <- length(df_week_list)
+
+# get survival table
+df_survived <- df_week_list %>% 
+  purrr::accumulate(\(x, d) {
+    d %>% 
+      dplyr::filter(franchise_name %in% x$franchise_name) %>%
+      # to break ties, I add in a _very_ small portion of the cumulative franchise score
+      # the effect is that any ties are broken using lowest cumulative score
+      dplyr::slice_max(order_by = (franchise_score + .00001*cum_franchise_score), n = -3, with_ties = FALSE)}, .init = df_week_list$`1`) %>%  
+  tail(-1) 
+
+
+# plot survival table
+df_survived %>% 
+  dplyr::bind_rows() %>% 
+  dplyr::arrange(desc(week)) %>% 
+  dplyr::select(`Survival Week` = week, League = league, Team = franchise_name, Owner = user_name, Score = franchise_score, `Cumulative Score` = cum_franchise_score) %>% 
+DT::datatable(.,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 12,
+    lengthMenu = c(12, 24, 48),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
+
+
+
+```
+
+#### Teams Eliminated from Pool
+
+```{r eliminated_teams}
+
+# get eliminated table by anti-joining with survival table
+df_eliminated <- purrr::map2(.x = df_week_list, .y = df_survived, ~dplyr::anti_join(.x, .y, by = c("league", "week", "franchise_id"))) %>% 
+  dplyr::bind_rows() %>% 
+  dplyr::group_by(league, franchise_id) %>% 
+  dplyr::filter(week == min(week)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::arrange(desc(week)) %>% 
+  dplyr::select(`Eliminated Week` = week, League = league, Team = franchise_name, Owner = user_name, Score = franchise_score, `Cumulative Score` = cum_franchise_score) 
+
+# plot eliminated table
+df_eliminated %>% 
+DT::datatable(.,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 12,
+    lengthMenu = c(12, 24, 48),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
+```
+
 
 
 ## Transactions
 
-Put these in a filterable table either at the bottom of this page or in a separate one.
+```{r all_transactions}
+
+df_all_transactions <- purrr::map(lts_conn, ~ ff_transactions(.x)) %>%
+  dplyr::bind_rows(.id = "league") %>%
+  arrange(desc(timestamp), league) %>%
+  mutate(
+    week = difftime(timestamp, lubridate::ymd("2022-09-06"), units = "weeks") %>% ceiling(.) %>% as.integer(.) %>% if_else(. < 0L, 0L, .)
+  ) %>%
+  select(league, week, everything())
+
+
+```
 
 
 ### Free Agent Transactions
 
-Same as [here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=1061403677).
+A list of free agent transactions.
+
+```{r free_agent}
+df_all_transactions %>%
+  dplyr::filter(stringr::str_detect(type, "free_agent")) %>%
+  dplyr::select(League = league, Week = week, Timestamp = timestamp, Type = type, Description = type_desc, Team = franchise_name, `Player Name` = player_name, Position = pos, `NFL Team` = team) %>%
+  DT::datatable(.,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 50,
+    lengthMenu = c(50, 100, 200),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
+
+```
 
 
-### Waiver Transactions
+### Waiver Bids
 
-Same as [here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=870210681).
+A list of FAAB transactions.
+
+```{r waiver_bids}
+df_all_transactions %>%
+  dplyr::filter(stringr::str_detect(type, "waiver")) %>%
+  dplyr::select(League = league, Week = week, Timestamp = timestamp, Type = type, Description = type_desc, Team = franchise_name, `Player Name` = player_name, Position = pos, `NFL Team` = team, `Bid Amount` = bbid_amount, `Waiver Priority` = waiver_priority, Comment = comment) %>%
+  DT::datatable(.,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 50,
+    lengthMenu = c(50, 100, 200),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
+
+```
 
 
 ### Trades
 
-Same as [here](https://docs.google.com/spreadsheets/d/1dbLITRWTaDBRU0wksk9nFJ4DqxV9BTokIQHW5pqDx5Y/edit#gid=674275935).
+A list of trade transactions.
+
+```{r trades}
+df_all_transactions %>%
+  dplyr::filter(stringr::str_detect(type, "trade")) %>%
+  dplyr::select(League = league, Week = week, Timestamp = timestamp, Type = type, Description = type_desc, Team = franchise_name, `Player Name` = player_name, Position = pos, `NFL Team` = team, `Bid Amount` = bbid_amount, `Trade Partner` = trade_partner,`Waiver Priority` = waiver_priority, Comment = comment) %>%
+  DT::datatable(.,
+  rownames = FALSE,
+  filter = "top",
+  extensions = "Buttons",
+  options = list(
+    pageLength = 50,
+    lengthMenu = c(50, 100, 200),
+    dom = "Bfrtpl",
+    buttons = c("csv", "excel", "pdf")
+  )
+)
+
+```
+
