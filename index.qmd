@@ -26,8 +26,10 @@ library(purrr)
 library(DT)
 # library(shinyWidgets)
 
-lts_conn <- c("999100941309804544") %>%
-  purrr::set_names("L3 The Only Legitimate LTS Bowl League") %>% 
+lts_conn <- c("991790283312459776",
+  "999100941309804544") %>%
+  purrr::set_names("L1 The Process",
+    "L3 The Only Legitimate LTS Bowl League") %>% 
 # # 2022 IDs
 # lts_conn <- c(
 #     "869072831982559232",
