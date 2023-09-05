@@ -31,7 +31,7 @@ lts_conn <- c("991790283312459776",
   "998064601466081280") %>%
   purrr::set_names("L1 The Process",
     "L3 The Only Legitimate LTS Bowl League",
-    "L4 Week 3 Nick Foles") %>% 
+    "L4 Week \3 Nick Foles") %>% 
 # # 2022 IDs
 # lts_conn <- c(
 #     "869072831982559232",
