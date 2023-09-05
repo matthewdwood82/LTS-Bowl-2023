@@ -12,7 +12,8 @@ execute:
 
 # data ingest
 library(ffscrapr)
-library(googlesheets4)
+# library(googlesheets4)
+library(curl)
 
 # data munging
 library(dplyr)
@@ -41,16 +42,13 @@ lts_conn <- c(
              ))
 ```
 
-
 ## Intro
 
 Welcome to the scoring and transaction site for the Living the Stream Bowl 2023!
 
-
 ## Bylaws
 
-Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto:lts.leaguecommish@gmail.com ) for access: [2023 bylaws](https://docs.google.com/document/d/1TVPnjUtb53mUAFtjFjvf8bk0E9AB4-FsHYxE8VFWiss/edit)
-
+Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto:lts.leaguecommish@gmail.com) for access: [2023 bylaws](https://docs.google.com/document/d/1TVPnjUtb53mUAFtjFjvf8bk0E9AB4-FsHYxE8VFWiss/edit)
 
 ## Scoring
 
@@ -140,7 +138,6 @@ DT::datatable(
 
 ```
 
-  
 ### Total Points
 
 ```{r total_points}
@@ -173,10 +170,9 @@ DT::datatable(
 
 ```
 
-  
 ### All Results
 
-A table with results of each matchup for each week. 
+A table with results of each matchup for each week.
 
 ```{r all_results}
 df_scores %>% 
@@ -205,15 +201,13 @@ df_scores %>%
   )
 ```
 
-
 ### Survival Pool
 
-Three teams are removed from the survival pool each week until there is only one team remaining after Week 16 MNF. 
+Three teams are removed from the survival pool each week until there is only one team remaining after Week 16 MNF.
 
 If two teams are tied at the end of a week, the team with the fewest cumulative points to date will be eliminated.
 
 These results should be considered interim until after Sleeper's data provider has processed most of its stat corrections on Tuesdays. See [Sleeper documentation](https://support.sleeper.com/en/articles/2441282-stat-corrections) for more information.
-
 
 #### Teams Still in Pool
 
@@ -293,8 +287,6 @@ DT::datatable(.,
 )
 ```
 
-
-
 ## Transactions
 
 ```{r all_transactions}
@@ -309,7 +301,6 @@ df_all_transactions <- purrr::map(lts_conn, ~ ff_transactions(.x)) %>%
 
 
 ```
-
 
 ### Free Agent Transactions
 
@@ -333,7 +324,6 @@ df_all_transactions %>%
 
 ```
 
-
 ### Waiver Bids
 
 A list of FAAB transactions.
@@ -356,7 +346,6 @@ df_all_transactions %>%
 
 ```
 
-
 ### Trades
 
 A list of trade transactions.
@@ -378,4 +367,3 @@ df_all_transactions %>%
 )
 
 ```
-
