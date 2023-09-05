@@ -20,6 +20,13 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        
+      # from https://rstudio.github.io/renv/articles/ci.html
+      - name: Restore packages
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::restore()
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
