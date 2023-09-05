@@ -26,19 +26,23 @@ library(purrr)
 library(DT)
 # library(shinyWidgets)
 
-lts_conn <- c(
-    "869072831982559232",
-    "859524057538887680",
-    "869073624508891136",
-    "869073848140800000",
-    "866166165288939520"
-  ) %>%
-  purrr::set_names("L1", "L2", "L3", "L4", "L5") %>%
+lts_conn <- c("999100941309804544") %>%
+  purrr::set_names("L3 The Only Legitimate LTS Bowl League") %>% 
+# # 2022 IDs
+# lts_conn <- c(
+#     "869072831982559232",
+#     "859524057538887680",
+#     "869073624508891136",
+#     "869073848140800000",
+#     "866166165288939520"
+#   ) %>%
+  # purrr::set_names("L1", "L2", "L3", "L4", "L5") %>%
   purrr::map(.x = .,
              ~ ff_connect(
                league_id = .x,
                platform = "sleeper",
-               season = 2022
+               # season = 2022
+               season = 2023
              ))
 ```
 
@@ -331,7 +335,20 @@ A list of FAAB transactions.
 ```{r waiver_bids}
 df_all_transactions %>%
   dplyr::filter(stringr::str_detect(type, "waiver")) %>%
-  dplyr::select(League = league, Week = week, Timestamp = timestamp, Type = type, Description = type_desc, Team = franchise_name, `Player Name` = player_name, Position = pos, `NFL Team` = team, `Bid Amount` = bbid_amount, `Waiver Priority` = waiver_priority, Comment = comment) %>%
+  dplyr::select(
+    League = league,
+    Week = week,
+    Timestamp = timestamp,
+    Type = type,
+    Description = type_desc,
+    Team = franchise_name,
+    `Player Name` = player_name,
+    Position = pos,
+    `NFL Team` = team,
+    `Bid Amount` = bbid_amount,
+    # `Waiver Priority` = waiver_priority,
+    Comment = comment
+  ) %>% 
   DT::datatable(.,
   rownames = FALSE,
   filter = "top",
@@ -353,7 +370,10 @@ A list of trade transactions.
 ```{r trades}
 df_all_transactions %>%
   dplyr::filter(stringr::str_detect(type, "trade")) %>%
-  dplyr::select(League = league, Week = week, Timestamp = timestamp, Type = type, Description = type_desc, Team = franchise_name, `Player Name` = player_name, Position = pos, `NFL Team` = team, `Bid Amount` = bbid_amount, `Trade Partner` = trade_partner,`Waiver Priority` = waiver_priority, Comment = comment) %>%
+  dplyr::select(League = league, Week = week, Timestamp = timestamp, Type = type, Description = type_desc, Team = franchise_name, `Player Name` = player_name, Position = pos, `NFL Team` = team, `Bid Amount` = bbid_amount, 
+                # `Trade Partner` = trade_partner,
+                # `Waiver Priority` = waiver_priority, 
+                Comment = comment) %>%
   DT::datatable(.,
   rownames = FALSE,
   filter = "top",
