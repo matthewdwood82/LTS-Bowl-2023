@@ -27,11 +27,13 @@ library(DT)
 # library(shinyWidgets)
 
 lts_conn <- c("991790283312459776",
-  "999100941309804544",
-  "998064601466081280") %>%
+              "998064598509150208",
+  "999101040358334464",
+  "999100941309804544") %>%
   purrr::set_names("L1 The Process",
-    "L3 The Only Legitimate LTS Bowl League",
-    "L4 Week \3 Nick Foles") %>% 
+                   "L2 Sack Based Floor",
+    "L3 Week 3 Nick Foles",
+    "L4 The Only Legitimate LTS Bowl League") %>% 
 # # 2022 IDs
 # lts_conn <- c(
 #     "869072831982559232",
@@ -42,7 +44,7 @@ lts_conn <- c("991790283312459776",
 #   ) %>%
   # purrr::set_names("L1", "L2", "L3", "L4", "L5") %>%
   purrr::map(.x = .,
-             ~ ff_connect(
+             ~ ffscrapr::ff_connect(
                league_id = .x,
                platform = "sleeper",
                # season = 2022
@@ -65,7 +67,7 @@ Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto
 ```{r weekly_report}
 
 # get all franchise names and ids for all leagues
-df_franchises <- purrr::map(lts_conn, ~ ff_franchises(.x)) %>% 
+df_franchises <- purrr::map(lts_conn, ~ ffscrapr::ff_franchises(.x)) %>% 
   dplyr::bind_rows(.id = "league")
 
 # get all scores for each week
