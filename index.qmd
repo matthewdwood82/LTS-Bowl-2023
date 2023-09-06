@@ -26,14 +26,20 @@ library(purrr)
 library(DT)
 # library(shinyWidgets)
 
-lts_conn <- c("991790283312459776",
-              "998064598509150208",
-  "999101040358334464",
-  "999100941309804544") %>%
-  purrr::set_names("L1 The Process",
-                   "L2 Sack Based Floor",
-    "L3 Week 3 Nick Foles",
-    "L4 The Only Legitimate LTS Bowl League") %>% 
+lts_conn <- c(
+  "999100941309804544",
+  "991790283312459776",
+  "998064601466081280",
+  "999101159296118784",
+  "999101040358334464"
+) %>%
+  purrr::set_names(
+    "L3 The Only Legitimate LTS Bowl League",
+    "L1 The Process",
+    "L2 Sack Based Floor",
+    "L4 LTS League 4 (some)",
+    "L5 Week 3 Nick Foles"
+  ) %>% 
 # # 2022 IDs
 # lts_conn <- c(
 #     "869072831982559232",
