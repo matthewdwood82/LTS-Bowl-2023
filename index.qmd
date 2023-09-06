@@ -27,16 +27,17 @@ library(DT)
 # library(shinyWidgets)
 
 lts_conn <- c(
-  "999100941309804544",
   "991790283312459776",
-  "998064601466081280",
+  # "998064601466081280",
+  "998064598509150208",
+  "999100941309804544",
   "999101159296118784",
   "999101040358334464"
 ) %>%
   purrr::set_names(
-    "L3 The Only Legitimate LTS Bowl League",
     "L1 The Process",
     "L2 Sack Based Floor",
+    "L3 The Only Legitimate LTS Bowl League",
     "L4 LTS League 4 (some)",
     "L5 Week 3 Nick Foles"
   ) %>% 
