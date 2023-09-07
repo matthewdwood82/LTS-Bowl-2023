@@ -82,7 +82,7 @@ df_franchises <- purrr::map(lts_conn, ~ ffscrapr::ff_franchises(.x)) %>%
   dplyr::bind_rows(.id = "league")
 
 # current week
-this_week <- difftime(lubridate::now(), ymd("2023-09-05"), units = "weeks") %>% ceiling() %>% as.integer()
+this_week <- difftime(lubridate::now(), lubridate::ymd("2023-09-05"), units = "weeks") %>% ceiling() %>% as.integer()
 
 # get all scores for each week
 df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
@@ -320,7 +320,7 @@ df_all_transactions <- purrr::map(lts_conn, ~ ff_transactions(.x)) %>%
   dplyr::bind_rows(.id = "league") %>%
   arrange(desc(timestamp), league) %>%
   mutate(
-    week = difftime(timestamp, lubridate::ymd("2022-09-06"), units = "weeks") %>% ceiling(.) %>% as.integer(.) %>% if_else(. < 0L, 0L, .)
+    week = difftime(timestamp, lubridate::ymd("2023-09-05"), units = "weeks") %>% ceiling(.) %>% as.integer(.) %>% if_else(. < 0L, 0L, .)
   ) %>%
   select(league, week, everything())
 
