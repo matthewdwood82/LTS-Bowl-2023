@@ -2,9 +2,10 @@
 title: "LTS Bowl 2023"
 # author: "Matt Wood"
 format: html
-  toc: true
-  toc-depth: 2
-  toc-location: left
+toc: true
+toc-depth: 3
+toc-expand: true
+toc-location: left
 editor: visual
 execute:
   echo: false
@@ -80,9 +81,13 @@ Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto
 df_franchises <- purrr::map(lts_conn, ~ ffscrapr::ff_franchises(.x)) %>% 
   dplyr::bind_rows(.id = "league")
 
+# current week
+this_week <- difftime(lubridate::now(), ymd("2023-09-05"), units = "weeks") %>% ceiling() %>% as.integer()
+
 # get all scores for each week
 df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
   dplyr::bind_rows(.id = "league") %>% 
+  dplyr::filter(week <= this_week) %>% 
   dplyr::mutate(diff_score = abs(franchise_score - opponent_score)) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league", "franchise_id")) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league" = "league", "opponent_id" = "franchise_id"), suffix = c("", "_opponent"))
