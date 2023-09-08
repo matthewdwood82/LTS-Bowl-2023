@@ -67,6 +67,14 @@ lts_conn <- c(
 
 Welcome to the scoring and transaction site for the Living the Stream Bowl 2023!
 
+Individual Sleeper league sites and League Managers, you may have to ask LMs for league "view only" access: 
+* [L1 The Process](https://sleeper.com/leagues/991790283312459776) - [@Weagle85](https://discord.com/channels/@me/1142996811498397816)
+* [L2 Sack Based Floor](https://sleeper.com/leagues/998064598509150208) - [@apulianas](https://discord.com/channels/@me/1148618739424698408)
+* [L3 The Only Legitimate LTS Bowl League](https://sleeper.com/leagues/999100941309804544) - [@dereknotderrick](https://discord.com/channels/@me/1148606137432817754)
+* [L4 LTS League 4 (some)](https://sleeper.com/leagues/999101159296118784) - [@pepejonz](https://discord.com/channels/@me/1148648212287197214)
+* [L5 Week 3 Nick Foles](https://sleeper.com/leagues/999101040358334464) - [@rsfraction](https://discord.com/channels/@me/1143739424119726180)
+
+
 ## Bylaws
 
 Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto:lts.leaguecommish@gmail.com) for access: [2023 bylaws](https://docs.google.com/document/d/1TVPnjUtb53mUAFtjFjvf8bk0E9AB4-FsHYxE8VFWiss/edit)
