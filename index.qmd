@@ -2,8 +2,9 @@
 title: "LTS Bowl 2023"
 # author: "Matt Wood"
 format: html
+page-layout: full
 toc: true
-toc-depth: 3
+toc-depth: 4
 toc-expand: true
 toc-location: left
 editor: visual
