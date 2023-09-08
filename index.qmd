@@ -64,6 +64,9 @@ lts_conn <- c(
 ```
 
 
+Updated: `r toupper(format(Sys.time(), "%a %Y-%m-%d %H:%M:%S %Z"))`
+
+
 ## Intro
 
 Welcome to the scoring and transaction site for the Living the Stream Bowl 2023!
@@ -81,8 +84,6 @@ Individual Sleeper league sites and League Managers, you may have to ask LMs for
 -   [L5 Week 3 Nick Foles](https://sleeper.com/leagues/999101040358334464) - [\@rsfraction](https://discord.com/channels/@me/1143739424119726180)
 
 For scoring site issues and questions, please reach out to Matt Wood by [email](mailto:matthewdwood82@gmail.com) or [Discord](https://discord.com/channels/@me/838756468014186582).
-
-This page was last updated `r toupper(format(Sys.time(), "%a %Y-%m-%d %H:%M:%S %Z"))`
 
 
 ## Bylaws
