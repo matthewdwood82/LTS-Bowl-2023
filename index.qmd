@@ -64,7 +64,7 @@ lts_conn <- c(
 ```
 
 
-Updated: `r toupper(format(Sys.time(), "%a %Y-%m-%d %H:%M:%S %Z"))`
+Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`
 
 
 ## Intro
