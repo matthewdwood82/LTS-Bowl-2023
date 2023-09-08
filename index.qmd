@@ -63,6 +63,7 @@ lts_conn <- c(
              ))
 ```
 
+
 ## Intro
 
 Welcome to the scoring and transaction site for the Living the Stream Bowl 2023!
@@ -79,9 +80,15 @@ Individual Sleeper league sites and League Managers, you may have to ask LMs for
 
 -   [L5 Week 3 Nick Foles](https://sleeper.com/leagues/999101040358334464) - [\@rsfraction](https://discord.com/channels/@me/1143739424119726180)
 
+For scoring site issues and questions, please reach out to Matt Wood by [email](mailto:matthewdwood82@gmail.com) or [Discord](https://discord.com/channels/@me/838756468014186582).
+
+This page was last updated `r toupper(format(Sys.time(), "%a %Y-%m-%d %H:%M:%S %Z"))`
+
+
 ## Bylaws
 
-Bylaws for the league are available here, email [LTS commish Greg Bryant](mailto:lts.leaguecommish@gmail.com) for access: [2023 bylaws](https://docs.google.com/document/d/1TVPnjUtb53mUAFtjFjvf8bk0E9AB4-FsHYxE8VFWiss/edit)
+Bylaws for the league are available here, reach out to LTS commish Greg Bryant by [email](mailto:lts.leaguecommish@gmail.com) or on [Discord](https://discord.com/channels/@me/1142996811498397816) for access: [2023 bylaws](https://docs.google.com/document/d/1TVPnjUtb53mUAFtjFjvf8bk0E9AB4-FsHYxE8VFWiss/edit)
+
 
 ## Scoring
 
@@ -175,6 +182,7 @@ DT::datatable(
 
 ```
 
+
 ### Total Points
 
 ```{r total_points}
@@ -207,6 +215,7 @@ DT::datatable(
 
 ```
 
+
 ### All Results
 
 A table with results of each matchup for each week.
@@ -238,6 +247,7 @@ df_scores %>%
   )
 ```
 
+
 ### Survival Pool
 
 Three teams are removed from the survival pool each week until there is only one team remaining after Week 16 MNF.
@@ -245,6 +255,7 @@ Three teams are removed from the survival pool each week until there is only one
 If two teams are tied at the end of a week, the team with the fewest cumulative points to date will be eliminated.
 
 These results should be considered interim until after Sleeper's data provider has processed most of its stat corrections on Tuesdays. See [Sleeper documentation](https://support.sleeper.com/en/articles/2441282-stat-corrections) for more information.
+
 
 #### Teams Still in Pool
 
@@ -296,6 +307,7 @@ DT::datatable(.,
 
 ```
 
+
 #### Teams Eliminated from Pool
 
 ```{r eliminated_teams}
@@ -324,6 +336,7 @@ DT::datatable(.,
 )
 ```
 
+
 ## Transactions
 
 ```{r all_transactions}
@@ -338,6 +351,7 @@ df_all_transactions <- purrr::map(lts_conn, ~ ff_transactions(.x)) %>%
 
 
 ```
+
 
 ### Free Agent Transactions
 
@@ -360,6 +374,7 @@ df_all_transactions %>%
 )
 
 ```
+
 
 ### Waiver Bids
 
@@ -395,6 +410,7 @@ df_all_transactions %>%
 )
 
 ```
+
 
 ### Trades
 
