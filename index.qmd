@@ -109,7 +109,7 @@ this_week <- difftime(lubridate::now(), lubridate::ymd("2023-09-05"), units = "w
 df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
   dplyr::bind_rows(.id = "league") %>% 
   dplyr::filter(week <= this_week) %>% 
-  dplyr::mutate(diff_score = abs(franchise_score - opponent_score)) %>% 
+  dplyr::mutate(diff_score = signif(abs(franchise_score - opponent_score), 5)) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league", "franchise_id")) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league" = "league", "opponent_id" = "franchise_id"), suffix = c("", "_opponent"))
 
@@ -347,7 +347,8 @@ df_all_transactions <- purrr::map(lts_conn, ~ ff_transactions(.x)) %>%
   dplyr::bind_rows(.id = "league") %>%
   arrange(desc(timestamp), league) %>%
   mutate(
-    week = difftime(timestamp, lubridate::ymd("2023-09-05"), units = "weeks") %>% ceiling(.) %>% as.integer(.) %>% if_else(. < 0L, 0L, .)
+    week = difftime(timestamp, lubridate::ymd("2023-09-05"), units = "weeks") %>% ceiling(.) %>% as.integer(.) %>% if_else(. < 0L, 0L, .),
+    timestamp = toupper(format(lubridate::with_tz(timestamp, tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))
   ) %>%
   select(league, week, everything())
 
