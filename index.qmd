@@ -12,7 +12,7 @@ execute:
   echo: false
   warning: false
 ---
-# NOTE: Results are interim and a bit janky at the moment. Will advise when Week 1 is final. 
+# NOTE: Results are final for Week 1. Work in progress to report correct best ball results, first only TUE AM when Sleeper rosters finalize, then "live" after each slate once we have logic to slot players and calculate score. Transactions will still report daily. Thanks for your patience.  
 ```{r dependencies}
 
 # data ingest
