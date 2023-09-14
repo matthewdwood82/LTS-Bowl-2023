@@ -1,0 +1,51 @@
+league,week,franchise_id,franchise_score,opponent_id,opponent_score,result,diff_score,franchise_name,user_name,franchise_name_opponent,user_name_opponent
+L1 The Process,1,1,155.37,6,174.68,L,19.31,Weagle85,Weagle85,O'Shaughnessy's Pub,OShaughnessysPub
+L1 The Process,1,2,153.21,4,130.06,W,23.15,SycamoreFlynns,SycamoreFlynns,Hana Ho Beaches,Kendradhl
+L1 The Process,1,3,159.13,8,176.08,L,16.95,AWhore,AWhore,Admiral Snackbar,Dandelo19
+L1 The Process,1,4,130.06,2,153.21,L,23.15,Hana Ho Beaches,Kendradhl,SycamoreFlynns,SycamoreFlynns
+L1 The Process,1,5,169.12,7,171.25,L,2.13,#Fartgate,DrWraith84,Sweep The Leg,ctjoumas
+L1 The Process,1,6,174.68,1,155.37,W,19.31,O'Shaughnessy's Pub,OShaughnessysPub,Weagle85,Weagle85
+L1 The Process,1,7,171.25,5,169.12,W,2.13,Sweep The Leg,ctjoumas,#Fartgate,DrWraith84
+L1 The Process,1,8,176.08,3,159.13,W,16.95,Admiral Snackbar,Dandelo19,AWhore,AWhore
+L1 The Process,1,9,165.09,10,179.92,L,14.83,Horsey Sauce,FeelingDangerouz,sugarfreemocha,sugarfreemocha
+L1 The Process,1,10,179.92,9,165.09,W,14.83,sugarfreemocha,sugarfreemocha,Horsey Sauce,FeelingDangerouz
+L2 Sack Based Floor,1,1,171.96,6,140.01,W,31.95,kfisch55,kfisch55,Leg Wrestling Champ,RawlsTofJ
+L2 Sack Based Floor,1,2,164.45,8,155.15,W,9.3,LamArby’s,apulianas,The Process,stephensear
+L2 Sack Based Floor,1,3,194.52,5,146.28,W,48.24,jimmy2thumbs,jimmy2thumbs, I am tilting,arthurdantas
+L2 Sack Based Floor,1,4,172.44,9,182.29,L,9.85,The Poop Monsters,karmannkc,jbieligk,jbieligk
+L2 Sack Based Floor,1,5,146.28,3,194.52,L,48.24, I am tilting,arthurdantas,jimmy2thumbs,jimmy2thumbs
+L2 Sack Based Floor,1,6,140.01,1,171.96,L,31.95,Leg Wrestling Champ,RawlsTofJ,kfisch55,kfisch55
+L2 Sack Based Floor,1,7,207.99,10,142.25,W,65.74,Sorry to the kids,FoolofaTook13,Not Great Bob,tommcg17
+L2 Sack Based Floor,1,8,155.15,2,164.45,L,9.3,The Process,stephensear,LamArby’s,apulianas
+L2 Sack Based Floor,1,9,182.29,4,172.44,W,9.85,jbieligk,jbieligk,The Poop Monsters,karmannkc
+L2 Sack Based Floor,1,10,142.25,7,207.99,L,65.74,Not Great Bob,tommcg17,Sorry to the kids,FoolofaTook13
+L3 The Only Legitimate LTS Bowl League,1,1,171.6,2,196.51,L,24.91,39ers,tripp39,The Enemy Speaks Kindly,Deredactyl
+L3 The Only Legitimate LTS Bowl League,1,2,196.51,1,171.6,W,24.91,The Enemy Speaks Kindly,Deredactyl,39ers,tripp39
+L3 The Only Legitimate LTS Bowl League,1,3,150.83,4,149.76,W,1.07,Turd Ferguson,Turducken7,_casey88,_casey88
+L3 The Only Legitimate LTS Bowl League,1,4,149.76,3,150.83,L,1.07,_casey88,_casey88,Turd Ferguson,Turducken7
+L3 The Only Legitimate LTS Bowl League,1,5,184.47,8,187.35,L,2.88,The Woke FAAB,reginaldo,WilhelmTilt,ringular
+L3 The Only Legitimate LTS Bowl League,1,6,111.03,10,156.94,L,45.91,Edina Cake Eaters,ecsirkin,johnnysmomskid,johnnysmomskid
+L3 The Only Legitimate LTS Bowl League,1,7,138.53,9,210.89,L,72.36,Gods of War,DefLepFan4Ever,Never Owned ,alexewart
+L3 The Only Legitimate LTS Bowl League,1,8,187.35,5,184.47,W,2.88,WilhelmTilt,ringular,The Woke FAAB,reginaldo
+L3 The Only Legitimate LTS Bowl League,1,9,210.89,7,138.53,W,72.36,Never Owned ,alexewart,Gods of War,DefLepFan4Ever
+L3 The Only Legitimate LTS Bowl League,1,10,156.94,6,111.03,W,45.91,johnnysmomskid,johnnysmomskid,Edina Cake Eaters,ecsirkin
+L4 LTS League 4 (some),1,1,181.86,9,149.49,W,32.37,DavisDayCare,DavisDayCare,powersrva,powersrva
+L4 LTS League 4 (some),1,2,144.8,10,164.95,L,20.15,The Glorious Process,GuzOP21,Poop on the Cob,Joker1b
+L4 LTS League 4 (some),1,3,170.77,8,174.86,L,4.09,jetsgnome22,jetsgnome22,BigUglyRhino,ErikFedders
+L4 LTS League 4 (some),1,4,150.87,7,200.38,L,49.51,You could do worse,pfitzsimmons85,Tennesunk Titans,austinhunt94
+L4 LTS League 4 (some),1,5,167.15,6,173.09,L,5.94,Bang Bang Gang,theB1gGuy,Forrest Whitaker eye,cptbeefalo
+L4 LTS League 4 (some),1,6,173.09,5,167.15,W,5.94,Forrest Whitaker eye,cptbeefalo,Bang Bang Gang,theB1gGuy
+L4 LTS League 4 (some),1,7,200.38,4,150.87,W,49.51,Tennesunk Titans,austinhunt94,You could do worse,pfitzsimmons85
+L4 LTS League 4 (some),1,8,174.86,3,170.77,W,4.09,BigUglyRhino,ErikFedders,jetsgnome22,jetsgnome22
+L4 LTS League 4 (some),1,9,149.49,1,181.86,L,32.37,powersrva,powersrva,DavisDayCare,DavisDayCare
+L4 LTS League 4 (some),1,10,164.95,2,144.8,W,20.15,Poop on the Cob,Joker1b,The Glorious Process,GuzOP21
+L5 Week 3 Nick Foles,1,1,167.68,2,144.06,W,23.62,The Lib Owners,nak97,fantasyscott,fantasyscott
+L5 Week 3 Nick Foles,1,2,144.06,1,167.68,L,23.62,fantasyscott,fantasyscott,The Lib Owners,nak97
+L5 Week 3 Nick Foles,1,3,171.01,10,130.91,W,40.1,Sexy Skeletons ,aspires,charlessword,charlessword
+L5 Week 3 Nick Foles,1,4,135.58,8,194.58,L,59,Lenny’s Retirement Party,matthewdwood82,Great Clips' Revenge,CommieEsq
+L5 Week 3 Nick Foles,1,5,191.92,9,192.03,L,0.11,Closet Poopers,coots1185,sadmalander,sadmalander
+L5 Week 3 Nick Foles,1,6,176.72,7,196.62,L,19.9,TD Upside,csurunnerccr,Big Seltzer™,jonsey456
+L5 Week 3 Nick Foles,1,7,196.62,6,176.72,W,19.9,Big Seltzer™,jonsey456,TD Upside,csurunnerccr
+L5 Week 3 Nick Foles,1,8,194.58,4,135.58,W,59,Great Clips' Revenge,CommieEsq,Lenny’s Retirement Party,matthewdwood82
+L5 Week 3 Nick Foles,1,9,192.03,5,191.92,W,0.11,sadmalander,sadmalander,Closet Poopers,coots1185
+L5 Week 3 Nick Foles,1,10,130.91,3,171.01,L,40.1,charlessword,charlessword,Sexy Skeletons ,aspires

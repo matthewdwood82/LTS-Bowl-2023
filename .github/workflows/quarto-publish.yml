@@ -5,9 +5,16 @@ on:
   pull_request:
     branches: [main, master]
   schedule:
-    - cron: '0 4 * 9-12,1 0-6'
-    - cron: '0 17,21 * * 0'
-    - cron: '0 1 * * 1,2,5'
+    # 4a EDT (in UTC) for waiver run
+    - cron: '0 8 * 9-12,1 0-6'
+    # 5p EDT SUN (in UTC) for SUN 1p gamescore update
+    - cron: '0 21 * * 0'
+    # 9p EDT SUN (in UTC) for SUN 4p gamescore update
+    - cron: '0 1 * * 1'
+    # 1a EDT MON & TUE (in UTC) for SUN & MON 8p gamescore updates
+    - cron: '0 5 * * 1,2'
+    
+    
 
 name: Quarto Publish
 
