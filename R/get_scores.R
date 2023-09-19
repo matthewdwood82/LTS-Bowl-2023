@@ -29,7 +29,7 @@ df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
   # # will report interim week results
   # dplyr::filter(week <= this_week) %>% 
   # will only report the completed results week when the new week starts
-  dplyr::filter(week < this_week) %>%
+  dplyr::filter(week <= this_week) %>%
   dplyr::mutate(diff_score = signif(abs(franchise_score - opponent_score), 5)) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league", "franchise_id")) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league" = "league", "opponent_id" = "franchise_id"), suffix = c("", "_opponent"))
@@ -104,6 +104,7 @@ df_total_points <- df_scores %>%
     total_pts_for = sum(franchise_score, na.rm = TRUE),
     total_pts_against = sum(opponent_score, na.rm = TRUE)
   ) %>%
+  # dplyr::ungroup() %>% 
   dplyr::select(
     Team = franchise_name,
     `Total Points For` = total_pts_for,
@@ -161,7 +162,7 @@ df_survived %>%
 df_eliminated <- purrr::map2(.x = df_week_list, .y = df_survived, ~dplyr::anti_join(.x, .y, by = c("league", "week", "franchise_id"))) %>% 
   dplyr::bind_rows() %>% 
   dplyr::group_by(league, franchise_id) %>% 
-  dplyr::filter(week == min(week)) %>% 
+  dplyr::filter(week == min(week)) %>%
   dplyr::ungroup() %>% 
   dplyr::arrange(desc(week)) %>% 
   dplyr::select(`Eliminated Week` = week, League = league, Team = franchise_name, Owner = user_name, Score = franchise_score, `Cumulative Score` = cum_franchise_score) 
