@@ -13,7 +13,9 @@ execute:
   warning: false
 ---
 
-**NOTE: Results are final for Week 1. Work in progress to report correct best ball results, first only TUE AM when Sleeper rosters finalize, then "live" after each slate once we have logic to slot players and calculate score. Transactions will still report daily. Thanks for your patience.**
+**Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`**
+
+**NOTE: Results are final for Week 2. By-slate results update is WIP. Transactions will report daily. Thanks for your patience.**
 
 ```{r dependencies}
 
@@ -35,8 +37,6 @@ library(DT)
 # get connection to Sleeper leagues
 source("R/get_conn.R")
 ```
-
-Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`
 
 ## Intro
 
