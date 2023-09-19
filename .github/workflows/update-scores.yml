@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main, master]
+  push:
+    branches: [main, master]
   # pull_request:
   #   branches: [main, master]
   schedule:
@@ -41,3 +41,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Save new score file
+          branch: main
+          commit_options: '--no-verify --signoff'
+          file_pattern: '*.csv dat/*.csv'
+          
