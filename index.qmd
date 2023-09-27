@@ -15,7 +15,17 @@ execute:
 
 **Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`**
 
-**NOTE: Results are final for Week 2. By-slate results update is WIP. Transactions will report daily. Thanks for your patience.**
+**NOTE: Results are final for Week 3. Transactions will report daily. Thanks for your patience.**
+
+The below are WIP...
+
+-   by-slate results that use scores of players that would currently make a roster by score (versus Sleeper's arbitrary assignment ahead of stat correction)
+
+-   fixing some of the floating point and rounding errors that result in cumulative scores that are 10-16 decimals long and slightly inacurrate (\~.001)
+
+-   adding LTS color scheme
+
+-   other league member recommendations
 
 ```{r dependencies}
 
