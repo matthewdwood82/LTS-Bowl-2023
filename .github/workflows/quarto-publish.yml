@@ -1,5 +1,7 @@
+name: Quarto Publish
+
 on:
-  workflow_dispatch:
+  # workflow_dispatch:
   push:
     branches: [main, master]
   pull_request:
@@ -15,9 +17,6 @@ on:
     # - cron: '0 5 * 9-12,1-2 1,2'
     # 12p EDT TUE for week final scores
     - - cron: '0 16 * 9-12,1-2 2'
-    
-
-name: Quarto Publish
 
 jobs:
   build-deploy:
