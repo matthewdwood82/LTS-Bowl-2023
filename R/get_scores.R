@@ -30,7 +30,7 @@ df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
   # dplyr::filter(week <= this_week) %>% 
   # will only report the completed results week when the new week starts
   dplyr::filter(week <= this_week) %>%
-  dplyr::mutate(diff_score = signif(abs(franchise_score - opponent_score), 5)) %>% 
+  dplyr::mutate(diff_score = abs(franchise_score - opponent_score)) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league", "franchise_id")) %>% 
   dplyr::left_join(df_franchises[,1:4], by = c("league" = "league", "opponent_id" = "franchise_id"), suffix = c("", "_opponent"))
 

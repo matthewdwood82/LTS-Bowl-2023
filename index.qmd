@@ -78,8 +78,6 @@ Bylaws for the league are available here, reach out to LTS commish Greg Bryant b
 
 readr::read_csv("dat/df_weekly.csv", col_types = "iccccddd") %>% 
 DT::datatable(
-  # df_weekly,
-  .,
   rownames = FALSE,
   filter = "top",
   extensions = "Buttons",
@@ -89,7 +87,8 @@ DT::datatable(
     dom = "Bfrtpl",
     buttons = c("csv", "excel", "pdf")
   )
-)
+) %>% 
+  DT::formatRound(c("Awardee Score", "Opponent Score", "Difference"), digits = 2) 
 
 ```
 
@@ -99,8 +98,6 @@ DT::datatable(
 
 readr::read_csv("dat/df_total_points.csv", col_types = "cddc") %>% 
 DT::datatable(
-  # df_total_points,
-  .,
   rownames = FALSE,
   filter = "top",
   extensions = "Buttons",
@@ -110,7 +107,8 @@ DT::datatable(
     dom = "Bfrtpl",
     buttons = c("csv", "excel", "pdf")
   )
-)
+) %>% 
+  DT::formatRound(c("Total Points For", "Total Points Against"), digits = 2) 
 
 ```
 
@@ -121,7 +119,6 @@ A table with results of each matchup for each week.
 ```{r all_results}
 
 readr::read_csv("dat/df_scores.csv", col_types = "cicdcdcd") %>% 
-# df_scores %>% 
   dplyr::arrange(desc(week), league) %>%
   dplyr::select(
     League = league,
@@ -144,7 +141,8 @@ readr::read_csv("dat/df_scores.csv", col_types = "cicdcdcd") %>%
       dom = "Bfrtpl",
       buttons = c("csv", "excel", "pdf")
     )
-  )
+  ) %>% 
+  DT::formatRound(c("Score", "Opp. Score", "Difference"), digits = 2) 
 ```
 
 ### Survival Pool
@@ -161,8 +159,7 @@ These results should be considered interim until after Sleeper's data provider h
 
 # plot survival table
 readr::read_csv("dat/df_survived.csv", col_types = "icccdd") %>% 
-# df_survived %>% 
-  DT::datatable(.,
+  DT::datatable(
   rownames = FALSE,
   filter = "top",
   extensions = "Buttons",
@@ -172,7 +169,8 @@ readr::read_csv("dat/df_survived.csv", col_types = "icccdd") %>%
     dom = "Bfrtpl",
     buttons = c("csv", "excel", "pdf")
   )
-)
+) %>% 
+  DT::formatRound(c("Score", "Cumulative Score"), digits = 2) 
 
 
 
@@ -184,8 +182,7 @@ readr::read_csv("dat/df_survived.csv", col_types = "icccdd") %>%
 
 # plot eliminated table
 readr::read_csv("dat/df_eliminated.csv", col_types = "icccdd") %>% 
-# df_eliminated %>% 
-DT::datatable(.,
+DT::datatable(
   rownames = FALSE,
   filter = "top",
   extensions = "Buttons",
@@ -195,7 +192,8 @@ DT::datatable(.,
     dom = "Bfrtpl",
     buttons = c("csv", "excel", "pdf")
   )
-)
+) %>% 
+  DT::formatRound(c("Score", "Cumulative Score"), digits = 2) 
 ```
 
 ## Transactions
