@@ -13,17 +13,6 @@ execute:
   warning: false
 ---
 
-**Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`**
-
-**NOTE: Results are final for Week 4. Transactions will report daily. Thanks for your patience.**
-
-The below are WIP...
-
--   by-slate results that use scores of players that would currently make a roster by score (versus Sleeper's arbitrary assignment ahead of stat correction)
-
--   adding LTS color scheme
-
--   other league member recommendations
 
 ```{r dependencies}
 
@@ -45,6 +34,18 @@ library(DT)
 # get connection to Sleeper leagues
 source("R/get_conn.R")
 ```
+**Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`**
+
+**NOTE: Results are final for Week `r readr::read_lines("dat/this_week.txt")`. Transactions will report daily. Thanks for your patience.**
+
+The below are WIP...
+
+-   by-slate results that use scores of players that would currently make a roster by score (versus Sleeper's arbitrary assignment ahead of stat correction)
+
+-   adding LTS color scheme
+
+-   other league member recommendations
+
 
 ## Intro
 

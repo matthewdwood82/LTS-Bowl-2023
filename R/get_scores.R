@@ -22,6 +22,7 @@ df_franchises <- purrr::map(lts_conn, ~ ffscrapr::ff_franchises(.x)) %>%
 
 # current week
 this_week <- difftime(lubridate::now(), lubridate::ymd("2023-09-06"), units = "weeks") %>% ceiling() %>% as.integer()
+readr::write_lines(this_week, "dat/this_week.txt")
 
 # get all scores for each week
 df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
