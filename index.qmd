@@ -36,7 +36,7 @@ source("R/get_conn.R")
 ```
 **Updated: `r toupper(format(lubridate::with_tz(Sys.time(), tzone="America/New_York"), "%a %Y-%m-%d %H:%M:%S %Z"))`**
 
-**NOTE: Results are final for Week `r readr::read_lines("dat/this_week.txt")`. Transactions will report daily. Thanks for your patience.**
+**NOTE: Results are final for Week `r as.numeric(readr::read_lines("dat/this_week.txt"))-1`. Transactions will report daily. Thanks for your patience.**
 
 The below are WIP...
 
