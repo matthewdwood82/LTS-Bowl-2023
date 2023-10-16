@@ -1,6 +1,109 @@
 Week,Category,League,Awardee,Opponent,Awardee Score,Opponent Score,Difference
+<<<<<<< HEAD
 6,Highest Score,L1 The Process,AWhore,Horsey Sauce,158.42,120.55,37.86999999999999
 6,Lowest Score,L3 The Only Legitimate LTS Bowl League,WilhelmTilt,_casey88,25.07,91.7,66.63
+=======
+6,Highest Score,L1 The Process,Weagle85,SycamoreFlynns,0,0,0
+6,Highest Score,L1 The Process,SycamoreFlynns,Weagle85,0,0,0
+6,Highest Score,L1 The Process,AWhore,Horsey Sauce,0,0,0
+6,Highest Score,L1 The Process,Hana Ho Beaches,O'Shaughnessy's Pub,0,0,0
+6,Highest Score,L1 The Process,#Fartgate,Admiral Snackbar,0,0,0
+6,Highest Score,L1 The Process,O'Shaughnessy's Pub,Hana Ho Beaches,0,0,0
+6,Highest Score,L1 The Process,Sweep The Leg,sugarfreemocha,0,0,0
+6,Highest Score,L1 The Process,Admiral Snackbar,#Fartgate,0,0,0
+6,Highest Score,L1 The Process,Horsey Sauce,AWhore,0,0,0
+6,Highest Score,L1 The Process,sugarfreemocha,Sweep The Leg,0,0,0
+6,Highest Score,L2 Sack Based Floor,kfisch55,The Poop Monsters,0,0,0
+6,Highest Score,L2 Sack Based Floor,LamArby’s,Sorry to the kids,0,0,0
+6,Highest Score,L2 Sack Based Floor,WhatKindOfNameIsDenny?,jbieligk,0,0,0
+6,Highest Score,L2 Sack Based Floor,The Poop Monsters,kfisch55,0,0,0
+6,Highest Score,L2 Sack Based Floor, I am tilting,Leg Wrestling Champ,0,0,0
+6,Highest Score,L2 Sack Based Floor,Leg Wrestling Champ, I am tilting,0,0,0
+6,Highest Score,L2 Sack Based Floor,Sorry to the kids,LamArby’s,0,0,0
+6,Highest Score,L2 Sack Based Floor,The Process,Not Great Bob,0,0,0
+6,Highest Score,L2 Sack Based Floor,jbieligk,WhatKindOfNameIsDenny?,0,0,0
+6,Highest Score,L2 Sack Based Floor,Not Great Bob,The Process,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,39ers,Gods of War,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,The Enemy Speaks Kindly,Never Owned ,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,Turd Ferguson,Edina Cake Eaters,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,_casey88,WilhelmTilt,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,The Woke FAAB,johnnysmomskid,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,Edina Cake Eaters,Turd Ferguson,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,Gods of War,39ers,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,WilhelmTilt,_casey88,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,Never Owned ,The Enemy Speaks Kindly,0,0,0
+6,Highest Score,L3 The Only Legitimate LTS Bowl League,johnnysmomskid,The Woke FAAB,0,0,0
+6,Highest Score,L4 LTS League 4 (some),DavisDayCare,The Glorious Process,0,0,0
+6,Highest Score,L4 LTS League 4 (some),The Glorious Process,DavisDayCare,0,0,0
+6,Highest Score,L4 LTS League 4 (some),jetsgnome22,Forrest Whitaker eye,0,0,0
+6,Highest Score,L4 LTS League 4 (some),You could do worse,BigUglyRhino,0,0,0
+6,Highest Score,L4 LTS League 4 (some),Bang Bang Gang,Tennesunk Titans,0,0,0
+6,Highest Score,L4 LTS League 4 (some),Forrest Whitaker eye,jetsgnome22,0,0,0
+6,Highest Score,L4 LTS League 4 (some),Tennesunk Titans,Bang Bang Gang,0,0,0
+6,Highest Score,L4 LTS League 4 (some),BigUglyRhino,You could do worse,0,0,0
+6,Highest Score,L4 LTS League 4 (some),powersrva,Poop on the Cob,0,0,0
+6,Highest Score,L4 LTS League 4 (some),Poop on the Cob,powersrva,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,The Lib Owners,“With His Legs”,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,fantasyscott,charlessword,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,Sexy Skeletons ,Closet Poopers,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,Lenny’s Retirement Party,Big Seltzer™,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,Closet Poopers,Sexy Skeletons ,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,TD Upside,Great Clips' Revenge,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,Big Seltzer™,Lenny’s Retirement Party,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,Great Clips' Revenge,TD Upside,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,“With His Legs”,The Lib Owners,0,0,0
+6,Highest Score,L5 Week 3 Nick Foles,charlessword,fantasyscott,0,0,0
+6,Lowest Score,L1 The Process,Weagle85,SycamoreFlynns,0,0,0
+6,Lowest Score,L1 The Process,SycamoreFlynns,Weagle85,0,0,0
+6,Lowest Score,L1 The Process,AWhore,Horsey Sauce,0,0,0
+6,Lowest Score,L1 The Process,Hana Ho Beaches,O'Shaughnessy's Pub,0,0,0
+6,Lowest Score,L1 The Process,#Fartgate,Admiral Snackbar,0,0,0
+6,Lowest Score,L1 The Process,O'Shaughnessy's Pub,Hana Ho Beaches,0,0,0
+6,Lowest Score,L1 The Process,Sweep The Leg,sugarfreemocha,0,0,0
+6,Lowest Score,L1 The Process,Admiral Snackbar,#Fartgate,0,0,0
+6,Lowest Score,L1 The Process,Horsey Sauce,AWhore,0,0,0
+6,Lowest Score,L1 The Process,sugarfreemocha,Sweep The Leg,0,0,0
+6,Lowest Score,L2 Sack Based Floor,kfisch55,The Poop Monsters,0,0,0
+6,Lowest Score,L2 Sack Based Floor,LamArby’s,Sorry to the kids,0,0,0
+6,Lowest Score,L2 Sack Based Floor,WhatKindOfNameIsDenny?,jbieligk,0,0,0
+6,Lowest Score,L2 Sack Based Floor,The Poop Monsters,kfisch55,0,0,0
+6,Lowest Score,L2 Sack Based Floor, I am tilting,Leg Wrestling Champ,0,0,0
+6,Lowest Score,L2 Sack Based Floor,Leg Wrestling Champ, I am tilting,0,0,0
+6,Lowest Score,L2 Sack Based Floor,Sorry to the kids,LamArby’s,0,0,0
+6,Lowest Score,L2 Sack Based Floor,The Process,Not Great Bob,0,0,0
+6,Lowest Score,L2 Sack Based Floor,jbieligk,WhatKindOfNameIsDenny?,0,0,0
+6,Lowest Score,L2 Sack Based Floor,Not Great Bob,The Process,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,39ers,Gods of War,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,The Enemy Speaks Kindly,Never Owned ,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,Turd Ferguson,Edina Cake Eaters,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,_casey88,WilhelmTilt,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,The Woke FAAB,johnnysmomskid,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,Edina Cake Eaters,Turd Ferguson,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,Gods of War,39ers,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,WilhelmTilt,_casey88,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,Never Owned ,The Enemy Speaks Kindly,0,0,0
+6,Lowest Score,L3 The Only Legitimate LTS Bowl League,johnnysmomskid,The Woke FAAB,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),DavisDayCare,The Glorious Process,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),The Glorious Process,DavisDayCare,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),jetsgnome22,Forrest Whitaker eye,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),You could do worse,BigUglyRhino,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),Bang Bang Gang,Tennesunk Titans,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),Forrest Whitaker eye,jetsgnome22,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),Tennesunk Titans,Bang Bang Gang,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),BigUglyRhino,You could do worse,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),powersrva,Poop on the Cob,0,0,0
+6,Lowest Score,L4 LTS League 4 (some),Poop on the Cob,powersrva,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,The Lib Owners,“With His Legs”,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,fantasyscott,charlessword,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,Sexy Skeletons ,Closet Poopers,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,Lenny’s Retirement Party,Big Seltzer™,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,Closet Poopers,Sexy Skeletons ,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,TD Upside,Great Clips' Revenge,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,Big Seltzer™,Lenny’s Retirement Party,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,Great Clips' Revenge,TD Upside,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,“With His Legs”,The Lib Owners,0,0,0
+6,Lowest Score,L5 Week 3 Nick Foles,charlessword,fantasyscott,0,0,0
+>>>>>>> 6e96a7661acae4fe42aa89eaaec78cf5f77627e0
 5,Biggest Blowout,L3 The Only Legitimate LTS Bowl League,Never Owned ,The Woke FAAB,204.85,112.99,91.86
 5,Narrowest Win,L3 The Only Legitimate LTS Bowl League,The Enemy Speaks Kindly,_casey88,227.43,227.25,0.18000000000000682
 5,Fewest Points in Win,L1 The Process,O'Shaughnessy's Pub,Sweep The Leg,150.23,137.24,12.98999999999998
