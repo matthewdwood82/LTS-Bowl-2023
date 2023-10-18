@@ -26,10 +26,10 @@ this_week <- difftime(lubridate::now(), lubridate::ymd("2023-09-06"), units = "w
 # week number for update
 update_week <- difftime(
   lubridate::now(tz = "America/New_York"),
-  lubridate::ymd_hms("2023-09-05 12:30:00", tz = "America/New_York"),
+  lubridate::ymd_hms("2023-09-05 11:00:00", tz = "America/New_York"),
   units = "weeks"
-) %>% 
-  ceiling() %>% as.integer
+) %>%
+  floor() %>%  as.integer()
 readr::write_lines(this_week, "dat/update_week.txt")
 
 # get all scores for each week
