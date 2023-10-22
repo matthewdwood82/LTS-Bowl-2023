@@ -30,7 +30,7 @@ update_week <- difftime(
   units = "weeks"
 ) %>%
   floor() %>%  as.integer()
-readr::write_lines(this_week, "dat/update_week.txt")
+readr::write_lines(update_week, "dat/update_week.txt")
 
 # get all scores for each week
 df_scores <- purrr::map(lts_conn, ~ ff_schedule(.x)) %>%
