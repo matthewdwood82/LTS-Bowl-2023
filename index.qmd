@@ -197,7 +197,7 @@ DT::datatable(
     buttons = c("csv", "excel", "pdf")
   )
 ) %>% 
-  DT::formatRound(c("Score", "Cumulative Score"), digits = 2) 
+  DT::formatRound(c("Score", "Cumulative Score at Elimination"), digits = 2) 
 ```
 
 ## Transactions
