@@ -111,14 +111,15 @@ df_total_points <- df_scores %>%
   dplyr::group_by(league, franchise_name) %>%
   dplyr::summarize(
     total_pts_for = sum(franchise_score, na.rm = TRUE),
-    total_pts_against = sum(opponent_score, na.rm = TRUE)
+    total_pts_against = sum(opponent_score, na.rm = TRUE),
+    .groups = "drop"
   ) %>%
-  # dplyr::ungroup() %>% 
   dplyr::select(
     Team = franchise_name,
     `Total Points For` = total_pts_for,
     `Total Points Against` = total_pts_against,
-    League = league)
+    League = league) %>% 
+  dplyr::arrange(desc(`Total Points For`), `Total Points Against`)
 
 
 # write df_total_points
