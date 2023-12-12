@@ -1,0 +1,132 @@
+/*-- scss:defaults --*/
+
+
+
+/*-- scss:rules --*/
+.main-navigation {
+ 	font-family: "Rosario", Helvetica, Arial, sans-serif;
+ 	font-size: 24px;
+ 	font-size: 2.4rem;
+ 	line-height: 1.416667;
+ 	font-weight: bold;
+ 	padding-bottom: 13.333333%;
+ 	margin-bottom: 13.333333%;
+ 	border-bottom: 1px solid #bbb;
+ }
+ 
+ .post-navigation .post-title {
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	position: relative;
+	z-index: 2;
+}
+
+
+.site-title {
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-size: 2.2rem;
+	font-weight: 700;
+	line-height: 1.3636;
+	margin-bottom: 0;
+}
+
+.widget-title {
+	color: #333;
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.5;
+	font-weight: bold;
+	margin: 0 0 1.6em;
+}
+
+.widget_calendar caption {
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	margin: 0 0 1.6em;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.entry-title {
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	font-size: 26px;
+	font-size: 2.6rem;
+	line-height: 1.1538;
+	margin-bottom: 0.9231em;
+}
+
+.page-title {
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.3333;
+}
+
+.comments-title,
+.comment-reply-title {
+	font-family: "Rosario", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.454545;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #000;
+	font-family: 'Amethysta', Georgia, serif;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+}
+
+
+blockquote cite,
+blockquote small {
+	color: #333;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-family: 'Amethysta', Georgia, serif;
+	line-height: 1.6;
+}
+
+::-webkit-input-placeholder {
+	color: rgba(51, 51, 51, 0.7);
+	font-family: 'Amethysta', Georgia, serif;
+}
+
+:-moz-placeholder {
+	color: rgba(51, 51, 51, 0.7);
+	font-family: 'Amethysta', Georgia, serif;
+}
+
+::-moz-placeholder {
+	color: rgba(51, 51, 51, 0.7);
+	font-family: 'Amethysta', Georgia, serif;
+	opacity: 1; /* Since FF19 lowers the opacity of the placeholder by default */
+}
+
+:-ms-input-placeholder {
+	color: rgba(51, 51, 51, 0.7);
+	font-family: 'Amethysta', Georgia, serif;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	background-color: #333;
+	border: 0;
+	color: #fff;
+	cursor: pointer;
+	font-family: 'Amethysta', Georgia, serif;
+	font-size: 12px;
+	font-size: 1.2rem;
+	font-weight: 700;
+	padding: 0.7917em 1.5em;
+}
+

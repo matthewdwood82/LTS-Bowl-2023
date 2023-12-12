@@ -5,9 +5,10 @@ format: html
 page-layout: full
 toc: true
 toc-depth: 4
-toc-expand: true
+toc-expand: 1
 toc-location: left
 editor: visual
+theme: custom.scss
 execute:
   echo: false
   warning: false
