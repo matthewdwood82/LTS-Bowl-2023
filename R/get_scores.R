@@ -2,6 +2,7 @@
 library(ffscrapr)
 library(curl)
 library(readr)
+library(glue)
 
 # data munging
 library(dplyr)
@@ -22,8 +23,7 @@ df_franchises <-
   dplyr::bind_rows(.id = "league")
 
 # current week
-this_week <-
-  difftime(lubridate::now(), lubridate::ymd("2023-09-06"), units = "weeks") %>% ceiling() %>% as.integer()
+this_week <- difftime(lubridate::now(), lubridate::ymd("2023-09-06"), units = "weeks") %>% ceiling() %>% as.integer()
 
 # week number for update
 update_week <- difftime(
@@ -197,9 +197,31 @@ df_total_points <- df_scores %>%
 readr::write_csv(df_total_points, "dat/df_total_points.csv")
 
 
+# playoffs
+v_bracket <- rep(c("winners_bracket", "losers_bracket"), 5)
+
+v_league_id <- rep(as.character(unlist(purrr::map(lts_conn, "league_id"))), 2) %>% sort()
+
+v_query <- glue::glue("league/{v_league_id}/{v_bracket}")
+
+v_query_string <- purrr::map(v_query, ~rep(.x, 4)) %>% unlist(.)
+
+df_playoffs <- purrr::map(v_query, ~ffscrapr::sleeper_getendpoint(.x)) %>% 
+  purrr::map(., `[`, c("content", "query")) %>%
+  # purrr::set_names(purrr::map(., "query")) %>% 
+  dplyr::bind_rows(.id = "league_id") %>% 
+  dplyr::mutate(league_id = v_league_id[as.numeric(league_id)]) %>% 
+  tidyr::unnest_auto(content) %>% 
+  tidyr::unnest_auto(t1_from) %>% 
+  tidyr::unnest_auto(t2_from)
+
+
+
 # survived teams
 df_week_list <- df_scores %>%
-  dplyr::filter(week <= 16) %>%
+  # hardcode until we resolve the playoff score reporting
+  dplyr::filter(week <= 14) %>% 
+  # dplyr::filter(week <= update_week) %>%
   dplyr::arrange(week) %>%
   dplyr::group_by(league, franchise_id) %>%
   dplyr::mutate(cum_franchise_score = cumsum(franchise_score)) %>%
@@ -260,7 +282,6 @@ df_eliminated <-
     Score = franchise_score,
     `Cumulative Score at Elimination` = cum_franchise_score
   )
-
 
 # write df_eliminated
 readr::write_csv(df_eliminated, "dat/df_eliminated.csv")
