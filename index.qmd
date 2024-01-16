@@ -39,19 +39,19 @@ source("R/get_conn.R")
 
 **NOTE: Results are final for Week `r as.numeric(readr::read_lines("dat/update_week.txt"))`.**
 
-**Survivor pool results are only current through WEEK 14. We are working on getting Week 15 & 16 results.**
+**Survivor pool results have been updated and are now correct for the season. Congratulations to Horsey Sauce (FeelingDangerouz) for hanging on the entire season.**
 
-**Transactions will report daily. Thanks for your patience.**
+**Congratulations to this year's league winners!**
 
-The below are WIP...
+| League                                 | Winner Team          | Winner Owner     | Opponent Team            | Opponent Owner | Winner Score | LTS Bowl Finish |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| L1 The Process                         | Horsey Sauce         | FeelingDangerouz | sugarfreemocha           | sugarfreemocha | 693.43       | 2nd             |
+| L2 Sack Based Floor                    | The Poop Monsters    | karmannke        | LamArby’s                | apulianas      | 623.09       | 5th             |
+| L3 The Only Legitimate LTS Bowl League | Never Owned          | alexewart        | 39ers                    | tripp39        | 629.96       | 4th             |
+| L4 LTS League 4 (some)                 | The Glorious Process | GuzOP21          | Tennesunk Titans         | austinhunt94   | 724.31       | 1st             |
+| L5 Week 3 Nick Foles                   | Big Seltzer          | jonsey456        | Lenny's Retirement Party | matthewdwood82 | 670.76       | 3rd             |
 
--   add table for league playoffs and cross-league playoff race
-
--   by-slate results that use scores of players that would currently make a roster by score (versus Sleeper's arbitrary assignment ahead of stat correction)
-
--   adding LTS color scheme
-
--   other league member recommendations
+: League Winners.
 
 ## Intro
 
