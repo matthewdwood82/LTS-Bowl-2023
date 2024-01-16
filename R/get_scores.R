@@ -200,7 +200,7 @@ readr::write_csv(df_total_points, "dat/df_total_points.csv")
 # playoffs
 v_bracket <- rep(c("winners_bracket", "losers_bracket"), 5)
 
-v_league_id <- rep(as.character(unlist(purrr::map(lts_conn, "league_id"))), 2) %>% sort()
+v_league_id <- rep(unlist(purrr::map(lts_conn, "league_id")), 2) %>% sort()
 
 v_query <- glue::glue("league/{v_league_id}/{v_bracket}")
 
@@ -210,10 +210,11 @@ df_playoffs <- purrr::map(v_query, ~ffscrapr::sleeper_getendpoint(.x)) %>%
   purrr::map(., `[`, c("content", "query")) %>%
   # purrr::set_names(purrr::map(., "query")) %>% 
   dplyr::bind_rows(.id = "league_id") %>% 
-  dplyr::mutate(league_id = v_league_id[as.numeric(league_id)]) %>% 
-  tidyr::unnest_auto(content) %>% 
-  tidyr::unnest_auto(t1_from) %>% 
-  tidyr::unnest_auto(t2_from)
+  dplyr::mutate(league = names(v_league_id[as.numeric(league_id)]),
+    league_id = v_league_id[as.numeric(league_id)]) %>% 
+  tidyr::unnest_wider(content)  %>% 
+  tidyr::unnest_wider(t1_from, names_sep = "_")  %>%
+  tidyr::unnest_wider(t2_from, names_sep = "_")
 
 
 
@@ -235,6 +236,10 @@ df_week_list <- df_scores %>%
 # get max week in data, i.e., the current week
 v_max_week <- length(df_week_list)
 
+
+# get manual survival table
+df_survived_manual <- readr::read_csv("dat/df_survived_manual.csv")
+
 # get survival table
 df_survived <- df_week_list %>%
   purrr::accumulate(\(x, d) {
@@ -254,7 +259,6 @@ df_survived <- df_week_list %>%
 # write df_survived
 df_survived %>%
   dplyr::bind_rows() %>%
-  dplyr::arrange(desc(week)) %>%
   dplyr::select(
     `Survival Week` = week,
     League = league,
@@ -263,8 +267,13 @@ df_survived %>%
     Score = franchise_score,
     `Cumulative Score` = cum_franchise_score
   ) %>%
+  dplyr::bind_rows(df_survived_manual) %>% 
+  dplyr::arrange(desc(`Survival Week`), desc(Score)) %>%
   readr::write_csv(., "dat/df_survived.csv")
 
+
+# get manual eliminated table
+df_eliminated_manual <- readr::read_csv("dat/df_eliminated_manual.csv")
 
 # get eliminated table by anti-joining with survival table
 df_eliminated <-
@@ -273,7 +282,6 @@ df_eliminated <-
   dplyr::group_by(league, franchise_id) %>%
   dplyr::filter(week == min(week)) %>%
   dplyr::ungroup() %>%
-  dplyr::arrange(desc(week)) %>%
   dplyr::select(
     `Eliminated Week` = week,
     League = league,
@@ -281,7 +289,10 @@ df_eliminated <-
     Owner = user_name,
     Score = franchise_score,
     `Cumulative Score at Elimination` = cum_franchise_score
-  )
+  ) %>% 
+  dplyr::bind_rows(df_eliminated_manual) %>% 
+  dplyr::arrange(desc(`Eliminated Week`), desc(Score))
+  
 
 # write df_eliminated
 readr::write_csv(df_eliminated, "dat/df_eliminated.csv")
