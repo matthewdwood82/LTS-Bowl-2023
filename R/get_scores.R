@@ -26,12 +26,13 @@ df_franchises <-
 this_week <- difftime(lubridate::now(), lubridate::ymd("2023-09-06"), units = "weeks") %>% ceiling() %>% as.integer()
 
 # week number for update
-update_week <- difftime(
-  lubridate::now(tz = "America/New_York"),
-  lubridate::ymd_hms("2023-09-05 11:00:00", tz = "America/New_York"),
-  units = "weeks"
-) %>%
-  floor() %>%  as.integer()
+# update_week <- difftime(
+#   lubridate::now(tz = "America/New_York"),
+#   lubridate::ymd_hms("2023-09-05 11:00:00", tz = "America/New_York"),
+#   units = "weeks"
+# ) %>%
+#   floor() %>%  as.integer()
+update_week <- 17
 readr::write_lines(update_week, "dat/update_week.txt")
 
 # get all scores for each week
