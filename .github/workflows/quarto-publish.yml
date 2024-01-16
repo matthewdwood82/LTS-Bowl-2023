@@ -4,17 +4,11 @@ on:
     branches: [main, master]
   # pull_request:
   #   branches: [main, master]
-  schedule:
-    # 4a EDT (in UTC) for waiver run
-    - cron: '0 8 * 9-12,1-2 0-6'
-    # # 5p EDT SUN (in UTC) for SUN 1p gamescore update
-    # - cron: '0 21 * 9-12,1-2 0'
-    # # 9p EDT SUN (in UTC) for SUN 4p gamescore update
-    # - cron: '0 1 * 9-12,1-2 1'
-    # # 1a EDT MON & TUE (in UTC) for SUN & MON 8p gamescore updates
-    # - cron: '0 5 * 9-12,1-2 1,2'
-    # 12p EDT TUE for week final scores
-    - cron: '0 16 * 9-12,1-2 2'
+  # schedule:
+  #   # 4a EDT (in UTC) for waiver run
+  #   - cron: '0 8 * 9-12,1-2 0-6'
+  #   # 12p EDT TUE for week final scores
+  #   - cron: '0 16 * 9-12,1-2 2'
 
 name: Quarto Publish
 
