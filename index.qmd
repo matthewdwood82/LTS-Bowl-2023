@@ -44,7 +44,7 @@ source("R/get_conn.R")
 **Congratulations to this year's league winners!**
 
 | League                                 | Winner Team          | Winner Owner     | Opponent Team            | Opponent Owner | Winner Score | LTS Bowl Finish |
-|----------------------------------------|----------------------|------------------|--------------------------|----------------|--------------|-----------------|
+|-----------|----------|----------|----------|----------|----------|----------|
 | L1 The Process                         | Horsey Sauce         | FeelingDangerouz | sugarfreemocha           | sugarfreemocha | 693.43       | 2nd             |
 | L2 Sack Based Floor                    | The Poop Monsters    | karmannke        | LamArby’s                | apulianas      | 623.09       | 5th             |
 | L3 The Only Legitimate LTS Bowl League | Never Owned          | alexewart        | 39ers                    | tripp39        | 629.96       | 4th             |
