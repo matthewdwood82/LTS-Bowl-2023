@@ -1,132 +1,207 @@
 /*-- scss:defaults --*/
 
+$body-bg: #63b8c6;
 
+h2 {
+  font-family: Rosario, Arial, Helvetica, sans-serif!important; 
+  font-size: 39px!important;
+}
 
-/*-- scss:rules --*/
-.main-navigation {
- 	font-family: "Rosario", Helvetica, Arial, sans-serif;
- 	font-size: 24px;
- 	font-size: 2.4rem;
- 	line-height: 1.416667;
- 	font-weight: bold;
- 	padding-bottom: 13.333333%;
- 	margin-bottom: 13.333333%;
- 	border-bottom: 1px solid #bbb;
- }
- 
- .post-navigation .post-title {
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	position: relative;
-	z-index: 2;
+h3 {
+  font-family: Rosario, Arial, Helvetica, sans-serif!important; 
+  font-size: 30px!important;
+}
+
+// for weird background color bug in tables this needs to be set white 
+input.form-control {
+  background-color: #ffff!important;
+}
+
+#TOC {
+  height: 27px!important;
+  max-height:34px!important;
+  color: #ffff!important;
+  font-family: Rosario!important;
+  font-size: 28px!important;
 }
 
 
-.site-title {
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	font-size: 22px;
-	font-size: 2.2rem;
-	font-weight: 700;
-	line-height: 1.3636;
-	margin-bottom: 0;
+section.level2{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px!important;
+    background-color: #fff;
+    overflow: auto;
+    padding: 65px;
 }
 
-.widget-title {
-	color: #333;
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	font-size: 18px;
-	font-size: 1.8rem;
-	line-height: 1.5;
-	font-weight: bold;
-	margin: 0 0 1.6em;
+section.level3{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px!important;
+    background-color: #fff;
+    overflow: auto;
+    font-size: 18px;
+    padding: 5px;
 }
 
-.widget_calendar caption {
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	font-weight: 700;
-	margin: 0 0 1.6em;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
+a.nav-link {
+  height: 27px!important;
+  max-height:34px!important;
+  color: #ffff!important;
+  font-family: Rosario!important;
+  font-size: 28px!important;
+  border-bottom: 0px solid #bcea6b!important;
+  box-shadow: 0 -.5em #bcea6b inset!important;
+  transition: box-shadow .1s!important;
+  margin-bottom: 13px!important
 }
 
-.entry-title {
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	font-size: 26px;
-	font-size: 2.6rem;
-	line-height: 1.1538;
-	margin-bottom: 0.9231em;
+#toc-weekly-report,
+#toc-total-points,
+#toc-all-results,
+#toc-playoffs,
+#toc-survival-pool,
+#toc-free-agent-transactions,
+#toc-waiver-bids,
+#toc-trades,
+{
+  color: #ffff!important;
+  font-family: Rosario!important;
+  font-size: 24px!important;
+  border-bottom: 0px solid transparent!important;
+  box-shadow: 0 -.5em transparent inset!important;
+  transition: box-shadow .1s!important;
+  margin-bottom: 13px!important
 }
-
-.page-title {
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	font-size: 18px;
-	font-size: 1.8rem;
-	line-height: 1.3333;
-}
-
-.comments-title,
-.comment-reply-title {
-	font-family: "Rosario", Helvetica, Arial, sans-serif;
-	font-size: 18px;
-	font-size: 1.8rem;
-	line-height: 1.454545;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-	color: #000;
-	font-family: 'Amethysta', Georgia, serif;
-	font-size: 15px;
-	font-size: 1.5rem;
-	line-height: 1.6;
+#toc-teams-still-in-pool,
+#toc-teams-eliminated-from-pool {
+    color: #ffff!important;
+  font-family: Rosario!important;
+  font-size: 20px!important;
+  border-bottom: 0px solid transparent!important;
+  box-shadow: 0 -.5em transparent inset!important;
+  transition: box-shadow .1s!important;
+  margin-bottom: 13px!important
 }
 
 
-blockquote cite,
-blockquote small {
-	color: #333;
-	font-size: 15px;
-	font-size: 1.5rem;
-	font-family: 'Amethysta', Georgia, serif;
-	line-height: 1.6;
+// for non-sections with the :::{} notation
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px!important;
+    background-color: #fff;
+    overflow: auto;
 }
 
-::-webkit-input-placeholder {
-	color: rgba(51, 51, 51, 0.7);
-	font-family: 'Amethysta', Georgia, serif;
+/* smartphone: toggle/untoggle certain divs*/
+@media (max-width: 768px) {
+	section.level2{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px!important;
+    background-color: #fff;
+    overflow: auto;
+    padding: 5px;
+}
+}
+/* no smartphone content card styling */
+@media only screen and (min-width: 768px) {
+  .card {
+  background-color: #ffff!important;
+  margin-bottom: 30px!important;
+  padding: 65px!important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
-:-moz-placeholder {
-	color: rgba(51, 51, 51, 0.7);
-	font-family: 'Amethysta', Georgia, serif;
+
+}
+/* smartphone  content card styling*/
+@media only screen and (max-width: 768px) {
+  .card{
+    background-color: #ffff!important;
+    width: 100%!important;    
+    margin-bottom: 0px!important;
+    padding: 30px!important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-bottom: 20px!important;
+  }
+  
+  	section.level2{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px!important;
+    background-color: #fff;
+    overflow: auto;
+    padding: 5px;
 }
 
-::-moz-placeholder {
-	color: rgba(51, 51, 51, 0.7);
-	font-family: 'Amethysta', Georgia, serif;
-	opacity: 1; /* Since FF19 lowers the opacity of the placeholder by default */
+  /* hacky style fix for mobile lts feel */
+    body:not(.floating):not(.docked) .page-columns.toc-left {
+        display: grid;
+        gap: 0;
+        grid-template-columns: [screen-start] 0em [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start] minmax(0px, 1fr) [body-content-end body-end body-end-outset page-end-inset page-end screen-end-inset] 0em [screen-end]!important;
+    }
 }
 
-:-ms-input-placeholder {
-	color: rgba(51, 51, 51, 0.7);
-	font-family: 'Amethysta', Georgia, serif;
+p {
+  font-family: 'Amethysta', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	-webkit-appearance: button;
-	background-color: #333;
-	border: 0;
-	color: #fff;
-	cursor: pointer;
-	font-family: 'Amethysta', Georgia, serif;
-	font-size: 12px;
-	font-size: 1.2rem;
-	font-weight: 700;
-	padding: 0.7917em 1.5em;
+/* Style the navigation menu for smartphone*/
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+  position: relative;
 }
 
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #63b8c6;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: transparent;
+  color: #bcea6b;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #63b8c6;
+  color: white;
+}
+
+.backbutton {
+  color: rgba(34, 49, 63, 0.7);
+  font-family: 'Amethysta', Georgia, serif;
+  font-size: 10px;
+}
